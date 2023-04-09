@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import TodoListItem from "./TodoListItem";
 
-function TodoList({ todos }) {
+function TodoList({ todos, onToggle, onDelete }) {
 
     return (  
         <TodoListDiv>
@@ -9,6 +9,8 @@ function TodoList({ todos }) {
                 <TodoListItem 
                     key={todo.id}
                     todo={todo}
+                    onToggle={onToggle}
+                    onDelete={onDelete}
                 />
             ))}
         </TodoListDiv>
@@ -20,7 +22,7 @@ const TodoListDiv = styled.div`
     padding: 20px, 32px;
     padding-bottom: 48px;
     overflow-y: auto;
-
+    background: gray;
 `
 
 export default TodoList;

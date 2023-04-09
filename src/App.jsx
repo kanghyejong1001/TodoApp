@@ -49,22 +49,28 @@ function App() {
     nextId.current++
   }
 
-  const onToggle = () => {
-    
+  const onToggle = (id) => {
+    setTodos(
+      todos.map(todo => 
+        todo.id === id ? { ...todo, checked: !todo.checked } : todo  
+      )
+    )
   }
 
-  const onDelete = () => {
-    
+  const onDelete = (id) => {
+    setTodos(
+      todos.filter(todo => todo.id !== id)
+    )
+    nextId.current--
   }
 
   return (
     <div>
-      app
       <GlobalStyle />
       <TodoTemlate>
         <TodoHeader /><br/>
         <TodoInsert onInsert={onInsert} />
-        <TodoList todos={ todos }/>
+        <TodoList todos={ todos } onToggle={onToggle} onDelete={onDelete} />
       </TodoTemlate>
     </div>
   )

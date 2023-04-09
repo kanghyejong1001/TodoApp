@@ -16,13 +16,13 @@ function TodoInsert({ onInsert }) {
     return (  
         <div>
             <form onSubmit={onSubmit}>
-                <input 
+                <Input 
                     type="text" 
                     placeholder="할 일 입력"
                     value={text}
                     onChange={onChange}
                 />
-                <button type="submit">save</button>
+                <Button type="submit">save</Button>
             </form>
         </div>
     )
